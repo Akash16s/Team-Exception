@@ -1,11 +1,13 @@
+import os
 from rest_framework import generics, filters
 from rest_framework.pagination import PageNumberPagination
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.response import Response
-from .serializers import postSerializers, tagsSerializer, commentSerializer, postSerializersPOST
+from .serializers import postSerializers, tagsSerializer, commentSerializer
 from .models import postModel, tagModel, commentModel
 from azure.ai.textanalytics import TextAnalyticsClient
 from azure.core.credentials import AzureKeyCredential
+
 
 class StandardResultsSetPagination(PageNumberPagination):
     page_size = 10
@@ -30,17 +32,21 @@ class postHandler(generics.ListCreateAPIView):
         return postModel.objects.order_by("-pk")
 
     @staticmethod
-    def chackSentiment(data):
-        key = ""
+    def chackSentiment(data, title):
+        key = os.getenv("TEXT_KEY")
         endpoint = "https://hackjaipur.cognitiveservices.azure.com/"
         credential_ta = AzureKeyCredential(key)
         text_analytics_client = TextAnalyticsClient(
             endpoint=endpoint, credential=credential_ta)
-        response = text_analytics_client.analyze_sentiment(documents=[data])[0]
-        print(response)
+        response = text_analytics_client.analyze_sentiment(documents=[data, title])
+        return response
 
     def post(self, request, *args, **kwargs):
-        serial = postSerializersPOST(data=request.data)
+        sentiment = self.chackSentiment(request.data['body'], request.data['title'])
+        if sentiment[0]['sentiment'] == 'negative' and sentiment[0]['confidence_scores']['negative'] >= 0.80 or \
+                sentiment[1]['sentiment'] == 'negative' and sentiment[1]['confidence_scores']['negative'] >= 0.80:
+            return Response({"msg": "Your post doesn't follow the guideline"}, status=400)
+        serial = postSerializers(data=request.data)
         if serial.is_valid():
             serial.save()
             return Response(serial.validated_data, status=200)

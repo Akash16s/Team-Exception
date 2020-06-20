@@ -19,9 +19,3 @@ class postSerializers(serializers.ModelSerializer):
         model = postModel
         fields = "__all__"
         depth = 1
-
-
-class postSerializersPOST(serializers.ModelSerializer):
-    class Meta:
-        model = postModel
-        fields = "__all__"
