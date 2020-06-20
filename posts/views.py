@@ -43,8 +43,8 @@ class postHandler(generics.ListCreateAPIView):
 
     def post(self, request, *args, **kwargs):
         sentiment = self.chackSentiment(request.data['body'], request.data['title'])
-        if sentiment[0]['sentiment'] == 'negative' and sentiment[0]['confidence_scores']['negative'] >= 0.80 or \
-                sentiment[1]['sentiment'] == 'negative' and sentiment[1]['confidence_scores']['negative'] >= 0.80:
+        if sentiment[0]['sentiment'] == 'negative' and sentiment[0]['confidence_scores']['negative'] >= 0.10 or \
+                sentiment[1]['sentiment'] == 'negative' and sentiment[1]['confidence_scores']['negative'] >= 0.10:
             return Response({"msg": "Your post doesn't follow the guideline"}, status=400)
         serial = postSerializers(data=request.data)
         if serial.is_valid():
