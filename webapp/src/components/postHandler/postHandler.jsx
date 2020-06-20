@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./posthandler.css";
+import PostComp from "../postComponent/postcomp";
 
 class postHandler extends Component {
   constructor(props) {
@@ -25,16 +26,17 @@ class postHandler extends Component {
         <div className="posts">
           <h2 className="">Latest Posts</h2>
           <ul>
-            {/* {this.state.comp.map((post) => (
-              <CompBox
+            {this.state.posts.map((post) => (
+              <PostComp
                 key={post.id}
-                title={post.topic}
-                desc={post.desc}
-                time={post.time}
-                date={post.date}
-                link={post.link}
-              ></CompBox>
-            ))} */}
+                title={post.title}
+                body={post.body}
+                type={post.postType}
+                date={post.creationDate}
+                tags={post.tags}
+                score={post.score}
+              />
+            ))}
           </ul>
         </div>
       </div>
