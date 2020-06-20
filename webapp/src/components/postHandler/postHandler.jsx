@@ -29,6 +29,7 @@ class postHandler extends Component {
             {this.state.posts.map((post) => (
               <PostComp
                 key={post.id}
+                id={post.id}
                 title={post.title}
                 body={post.body}
                 type={post.postType}

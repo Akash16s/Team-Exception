@@ -6,7 +6,7 @@ import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 class headerComponent extends Component {
   render() {
     return (
-      <div>
+      <div className="NavItem">
         <Navbar bg="light" expand="lg">
           <Navbar.Brand href="#home">
             <img src={icon} alt="icon" className="logo" />
