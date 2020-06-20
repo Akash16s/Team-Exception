@@ -1,31 +1,31 @@
 import React, { Component } from "react";
-import "./sidebarStyle.css";
-import CompBox from "../competitionBox/competitionBoc";
+import "./posthandler.css";
 
-class sidebarComponent extends Component {
+class postHandler extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      comp: [],
+      posts: [],
     };
   }
 
   componentDidMount() {
-    fetch("https://hackjaipur.herokuapp.com/competitions/")
+    fetch("https://hackjaipur.herokuapp.com/post/list")
       .then((response) => response.json())
       .then((data) => {
         var title = data.results.map((res) => res);
-        this.setState({ comp: title });
+        this.setState({ posts: title });
       });
   }
 
   render() {
     return (
       <div>
-        <div className="side_border">
-          <h2 className="comph2">Competitions</h2>
+        <div className="posts">
+          <h2 className="">Latest Posts</h2>
           <ul>
-            {this.state.comp.map((post) => (
+            {/* {this.state.comp.map((post) => (
               <CompBox
                 key={post.id}
                 title={post.topic}
@@ -34,7 +34,7 @@ class sidebarComponent extends Component {
                 date={post.date}
                 link={post.link}
               ></CompBox>
-            ))}
+            ))} */}
           </ul>
         </div>
       </div>
@@ -42,4 +42,4 @@ class sidebarComponent extends Component {
   }
 }
 
-export default sidebarComponent;
+export default postHandler;

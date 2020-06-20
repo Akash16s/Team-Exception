@@ -1,11 +1,9 @@
-.side_border {
+.posts {
   margin-top: 1rem;
   margin-left: 1rem;
-  background-color: beige;
+  background-color: darkslategrey;
   border-radius: 1rem;
   margin-right: 1rem;
   padding: 1rem;
-}
-.comph2 {
-  font-size: 1.3rem;
+  color: white;
 }
