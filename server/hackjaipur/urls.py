@@ -21,5 +21,5 @@ urlpatterns = [
     path('post/', include("posts.urls"), name="post handler"),
     path('groups/', include("groups.urls"), name="group handler"),
     path('competitions/', include("competitions.urls"), name="competition handler"),
-    path('', include('auth0authorization.urls'))
+    path('', include('auth0authorization.urls')),
 ]
