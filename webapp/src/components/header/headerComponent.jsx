@@ -38,6 +38,9 @@ class headerComponent extends Component {
                   Separated link
                 </NavDropdown.Item>
               </NavDropdown> */}
+              <Nav.Link href="https://akash16s.us.auth0.com/login">
+                <strong>Login</strong>
+              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
