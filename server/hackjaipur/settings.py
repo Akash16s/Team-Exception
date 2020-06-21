@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'whitenoise',
     'groups',
     'competitions',
-    'rest_framework_jwt',
     'social_django',
     'corsheaders'
 ]
@@ -58,7 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     # 'auth0authorization.auth0backend.Auth0',
     # 'django.contrib.auth.backends.ModelBackend'
-    'django.contrib.auth.middleware.RemoteUserMiddleware',
+    # 'django.contrib.auth.middleware.RemoteUserMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -159,16 +158,6 @@ AUTHENTICATION_BACKENDS = [
 #     ),
 # }
 
-JWT_AUTH = {
-    'JWT_PAYLOAD_GET_USERNAME_HANDLER':
-        'auth0authorization.utils.jwt_get_username_from_payload_handler',
-    'JWT_DECODE_HANDLER':
-        'auth0authorization.utils.jwt_decode_token',
-    'JWT_ALGORITHM': 'RS256',
-    'JWT_AUDIENCE': os.getenv('CLIENT_ID'),
-    'JWT_ISSUER': 'https://127.0.0.1:8000/',
-    'JWT_AUTH_HEADER_PREFIX': 'Bearer',
-}
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 SOCIAL_AUTH_AUTH0_SCOPE = [
@@ -176,6 +165,11 @@ SOCIAL_AUTH_AUTH0_SCOPE = [
     'profile',
     'email'
 ]
+
+SOCIAL_AUTH_TRAILING_SLASH = False  # Remove trailing slash from routes
+SOCIAL_AUTH_AUTH0_DOMAIN = 'akash16s.us.auth0.com'
+SOCIAL_AUTH_AUTH0_KEY = os.getenv("CLIENT_ID")
+SOCIAL_AUTH_AUTH0_SECRET = os.getenv("CLIENT_SECRET")
 
 LOGIN_URL = '/login/auth0'
 LOGIN_REDIRECT_URL = '/dashboard'
