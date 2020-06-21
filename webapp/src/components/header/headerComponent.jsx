@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./header-style.css";
 import icon from "../../assets/mortarboard.svg";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 class headerComponent extends Component {
   render() {
@@ -14,9 +15,15 @@ class headerComponent extends Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/create-post">Create Post</Nav.Link>
-              <Nav.Link href="/groups">Groups</Nav.Link>
+              <Nav.Link>
+                <Link to="/">Home</Link>
+              </Nav.Link>
+              <Nav.Link>
+                <Link to="/create-post">Create Post</Link>
+              </Nav.Link>
+              <Nav.Link>
+                <Link to="/groups">Groups</Link>
+              </Nav.Link>
 
               <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>

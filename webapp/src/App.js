@@ -10,8 +10,9 @@ import Groups from "./pages/groups/groupscomponent";
 function App() {
   return (
     <div className="App">
-      <Header />
       <BrowserRouter>
+        <Header />
+
         <Switch>
           <Route exact path={"/"} component={HomePage} />
           <Route exact path={"/create-post"} component={CreatePost} />
