@@ -53,6 +53,7 @@ class postcomp extends Component {
             </div>
             <div className="col-8">
               <h4>{this.props.title}</h4>
+              <p>{this.props.body}</p>
               <div className="row">
                 {this.props.tags.map((post) => (
                   <button className="tagstyle btn btn-warning">
