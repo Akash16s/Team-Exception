@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Header from "./components/header/headerComponent";
 import HomePage from "./pages/homepage/homepageComponent";
 import CreatePost from "./pages/createPost/createpostComponent";
-
+import Groups from "./pages/groups/groupscomponent";
 function App() {
   return (
     <div className="App">
@@ -15,7 +15,8 @@ function App() {
         <Switch>
           <Route exact path={"/"} component={HomePage} />
           <Route exact path={"/create-post"} component={CreatePost} />
-          {/* <Route exact path={"*"} component={NotFound} /> */}
+          <Route exact path={"/groups"} component={Groups} />
+          <Route exact path={"*"} component={HomePage} />
         </Switch>
       </BrowserRouter>
     </div>
