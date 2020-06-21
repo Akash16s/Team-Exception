@@ -66,11 +66,12 @@ class postcomp extends Component {
             </div>
           </div>
         </div>
-
-        {/* comment */}
-        {this.state.commentList.map((post) => (
-          <h6>{post.message}</h6>
-        ))}
+        <div>
+          {/* comment */}
+          {this.state.commentList.map((post) => (
+            <h6 className="commets">{post.message}</h6>
+          ))}
+        </div>
 
         <form onSubmit={this.handleSubmit}>
           <label>Comment :</label>
