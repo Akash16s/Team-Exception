@@ -56,6 +56,7 @@ class createpostComponent extends Component {
         }
       }
     );
+    event.preventDefault();
   };
 
   render() {
