@@ -45,6 +45,7 @@ class createpostComponent extends Component {
         title: this.state.title,
         body: this.state.body,
         tags: this.state.tags,
+        postType: this.state.postType,
       }),
     };
     fetch("https://hackjaipur.herokuapp.com/post/list/", requestOptions).then(
