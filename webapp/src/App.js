@@ -5,6 +5,8 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Header from "./components/header/headerComponent";
 import HomePage from "./pages/homepage/homepageComponent";
+import CreatePost from "./pages/createPost/createpostComponent";
+
 function App() {
   return (
     <div className="App">
@@ -12,6 +14,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path={"/"} component={HomePage} />
+          <Route exact path={"/create-post"} component={CreatePost} />
           {/* <Route exact path={"*"} component={NotFound} /> */}
         </Switch>
       </BrowserRouter>

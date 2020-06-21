@@ -48,11 +48,20 @@ class postcomp extends Component {
       <div>
         <div className="innerpost">
           <div className="row">
+            <div className="col-2">
+              <p className="answers">Answers: {this.props.commentCount}</p>
+            </div>
             <div className="col-8">
               <h4>{this.props.title}</h4>
-              <p>{this.props.body}</p>
+              <div className="row">
+                {this.props.tags.map((post) => (
+                  <button className="tagstyle btn btn-warning">
+                    {post.tag}
+                  </button>
+                ))}
+              </div>
             </div>
-            <div className="col-4">
+            <div className="col-2">
               <p>Score: {this.props.score}</p>
             </div>
           </div>

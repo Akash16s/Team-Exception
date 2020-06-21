@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./posthandler.css";
 import PostComp from "../postComponent/postcomp";
+import { Link } from "react-router-dom";
 
 class postHandler extends Component {
   constructor(props) {
@@ -24,7 +25,9 @@ class postHandler extends Component {
     return (
       <div>
         <div className="posts">
-          <h2 className="">Latest Posts</h2>
+          <Link className="btn-light btn postBtn" to="/create-post">
+            Create Post
+          </Link>
           <ul>
             {this.state.posts.map((post) => (
               <PostComp
@@ -36,6 +39,7 @@ class postHandler extends Component {
                 date={post.creationDate}
                 tags={post.tags}
                 score={post.score}
+                commentCount={post.commentCount}
               />
             ))}
           </ul>

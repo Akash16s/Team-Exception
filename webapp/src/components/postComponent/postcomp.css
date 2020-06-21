@@ -12,3 +12,17 @@
   margin: 1rem;
   width: 70%;
 }
+
+.tagstyle {
+  font-size: small;
+  margin-left: 1rem;
+}
+
+.answers {
+  background-color: black;
+  color: white;
+  padding: 0.2rem;
+  border-radius: 1rem;
+  margin-top: 0.8rem;
+  font-size: small;
+}

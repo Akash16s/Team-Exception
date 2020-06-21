@@ -1,0 +1,9 @@
+.input {
+  margin: 1rem;
+  border-radius: 0.5rem;
+  width: 50%;
+  height: 5 rem;
+}
+.postButton {
+  margin-left: 30%;
+}
