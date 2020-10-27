@@ -3,7 +3,7 @@ asgiref==3.2.10
 certifi==2020.4.5.2
 cffi==1.14.0
 chardet==3.0.4
-cryptography==2.9.2
+cryptography==3.2
 dj-config-url==0.1.1
 Django==3.0.7
 django-cors-headers==3.4.0
